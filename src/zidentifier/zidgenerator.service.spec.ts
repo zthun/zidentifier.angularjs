@@ -10,7 +10,7 @@ import {ZIdentifierModuleName} from './zidentifier.module';
 describe('ZIdGeneratorService', () => {
     let target: IZIdGeneratorService;
 
-    beforeEach(()=>ng.mock.module(ZIdentifierModuleName));
+    beforeEach(() => ng.mock.module(ZIdentifierModuleName));
     beforeEach(ng.mock.inject((zIdGeneratorService: IZIdGeneratorService) => target = zIdGeneratorService));
 
     it('defines the common service.', () => {

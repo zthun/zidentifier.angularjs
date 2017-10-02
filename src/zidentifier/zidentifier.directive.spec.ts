@@ -10,7 +10,7 @@ describe('ZIdentifierDirective', () => {
 
     let compile: ng.ICompileService;
     let zIdGeneratorSvc: IZIdGeneratorService;
-    let scope: ng.IScope;
+    let scope: any;
 
     beforeEach(ng.mock.module(ZIdentifierModuleName));
     beforeEach(ng.mock.inject(($compile: ng.ICompileService) => compile = $compile));
@@ -31,8 +31,7 @@ describe('ZIdentifierDirective', () => {
         return element;
     }
 
-    function createTarget(): ng.IAugmentedJQuery {
-        let html = createHtml();
+    function createTarget(html: ng.IAugmentedJQuery): ng.IAugmentedJQuery {
         let compiledElement = compile(html[0].outerHTML)(scope);
         scope.$apply();
         return compiledElement;
@@ -40,11 +39,33 @@ describe('ZIdentifierDirective', () => {
 
     it('updates the id on the element.', () => {
         // Arrange
-        let expected = `foo-${ZId}`;
-        let target = createTarget();
+        let target = createTarget(createHtml());
         // Act
         let id = target.attr('id');
         // Assert
-        expect(id).toEqual(expected);
+        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(ZId, jasmine.anything());
+    });
+
+    it('leaves the element alone if the zid is not set.', () => {
+        // Arrange
+        let html = createHtml();
+        html.attr('data-z-id', '');
+        let target = createTarget(html);
+        // Act
+        let id = target.attr('id');
+        // Assert
+        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(null, jasmine.anything());
+    });
+
+    it('correctly interpolates values from the scope.', () => {
+        // Arrange
+        let html = createHtml();
+        scope.prop = 'my-value';
+        html.attr('data-z-id', `${ZId}-{{prop}}`);
+        let target = createTarget(html);
+        // Act
+        let id = target.attr('id');
+        // Assert
+        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(`${ZId}-my-value`, jasmine.anything());
     });
 });

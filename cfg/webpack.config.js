@@ -23,7 +23,7 @@ module.exports = (function() {
     };
 
     var externals = {
-        'angular': 'angular'
+        angular: 'angular'
     };
 
     var resolve = {

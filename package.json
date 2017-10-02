@@ -13,7 +13,7 @@
     "types": "src/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/zthun/zid.angular"
+        "url": "https://github.com/zthun/zidentifier.angularjs"
     },
     "scripts": {
         "clean:src": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js src/*.map src/**/*.map",
@@ -26,6 +26,7 @@
         "compile:webpack": "webpack --config cfg/webpack.config",
         "compile:ts": "tsc",
         "compile": "npm run compile:ts && npm run compile:webpack",
+        "compress": "uglifyjs bin/dist/zidentifier.js -o bin/dist/zidentifier.min.js",
         "make": "npm run clean && npm run lint && npm run test && npm run compile && npm run compress",
         "push": "git push origin && git push origin --tags && npm publish --access=public"
     },
@@ -33,7 +34,8 @@
         "angular": "^1.6.0"
     },
     "devDependencies": {
-        "@types/angular": "^1.6.32",
+        "@types/angular": "=1.6.32",
+        "@types/angular-mocks": "=1.5.11",
         "@types/jasmine": "=2.6.0",
         "@types/node": "=8.0.31",
         "angular": "=1.6.6",
@@ -55,7 +57,6 @@
         "zwebstyles": "=3.0.0"
     },
     "dependencies": {
-        "@types/angular-mocks": "^1.5.11",
         "@zthun/zidentifier.core": "=1.0.0"
     }
 }

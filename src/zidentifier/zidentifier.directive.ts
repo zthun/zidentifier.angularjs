@@ -5,7 +5,8 @@ import {IZIdGeneratorService} from '@zthun/zidentifier.core';
 import {ZIdentifierModuleName} from './zidentifier.module';
 import {ZIdGeneratorFactoryName} from './zidgenerator.service';
 
-export const ZIdentifierDirectiveName = 'zId';
+export const ZIdentifierDirectiveName: string = 'zId';
+export const ZIdentifierAttributeName: string = 'zId';
 
 /**
  * Represents an attribute directive that can be used to dynamically generate
@@ -37,7 +38,12 @@ export class ZIdentifierDirective implements ng.IDirective {
      *
      * @this {ZIdentifierDirective}
      */
-    public link(scope: ng.IScope, instanceElement: ng.IAugmentedJQuery): void {
+    public link(scope: ng.IScope, instanceElement: ng.IAugmentedJQuery, attrs: ng.IAttributes): void {
+        let nativeElement = instanceElement[0];
+        let zid = attrs[ZIdentifierAttributeName];
+        let zidExpr = zid ? `"${zid}"` : null;
+        let zvalue = zid ? this.$parse(zidExpr)(scope) : null;
+        this.zIdGeneratorService.generateIdForElement(zvalue, nativeElement);
     }
 }
 
