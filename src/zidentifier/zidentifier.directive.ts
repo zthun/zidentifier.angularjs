@@ -19,6 +19,10 @@ export class ZIdentifierDirective implements ng.IDirective {
      * Attribute
      */
     public restrict: string;
+    /**
+     * Link methods
+     */
+    public link: any;
 
     /**
      * Initializes a new instance of this object.
@@ -28,6 +32,9 @@ export class ZIdentifierDirective implements ng.IDirective {
      */
     constructor(private $parse: ng.IParseService, private zIdGeneratorService: IZIdGeneratorService) {
         this.restrict = 'A';
+        this.link = {
+            pre: this.pre
+        };
     }
 
     /**
@@ -38,7 +45,7 @@ export class ZIdentifierDirective implements ng.IDirective {
      *
      * @this {ZIdentifierDirective}
      */
-    public link(scope: ng.IScope, instanceElement: ng.IAugmentedJQuery, attrs: ng.IAttributes): void {
+    public pre(scope: ng.IScope, instanceElement: ng.IAugmentedJQuery, attrs: ng.IAttributes): void {
         let nativeElement = instanceElement[0];
         let zid = attrs[ZIdentifierAttributeName];
         let zidExpr = zid ? `"${zid}"` : null;
