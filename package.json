@@ -1,6 +1,6 @@
 {
     "name": "@zthun/zidentifier.angularjs",
-    "version": "1.0.0-0",
+    "version": "1.0.0",
     "description": "The zidentifier feature for Angular 1.x",
     "keywords": [
         "zid",
