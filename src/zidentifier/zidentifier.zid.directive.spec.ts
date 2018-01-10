@@ -1,3 +1,12 @@
+import { ZIdentifierTestUtil } from './zidentifier.abstract.directive.spec';
+
+export const ZIdentifierDirectiveAttribute = 'data-z-id';
+export const ZIdentifierDirectiveAttributeToGenerate = 'id';
+
+let testUtil = new ZIdentifierTestUtil();
+testUtil.create('ZIdentifierDirective', ZIdentifierDirectiveAttribute, ZIdentifierDirectiveAttributeToGenerate);
+
+/*
 import * as ng from 'angular';
 import 'angular-mocks';
 
@@ -19,8 +28,8 @@ describe('ZIdentifierDirective', () => {
     beforeEach(ng.mock.inject((zIdGeneratorService: IZIdGeneratorService) => {
         zIdGeneratorSvc = zIdGeneratorService;
 
-        spyOn(zIdGeneratorSvc, 'generateIdForElement').and.callFake((zid: string, el: HTMLElement) => {
-            el.setAttribute('id', `foo-${zid}`);
+        spyOn(zIdGeneratorSvc, 'generateAttributeForElement').and.callFake((attr: string, zid: string, el: HTMLElement) => {
+            el.setAttribute(attr, `foo-${zid}`);
             return el;
         });
     }));
@@ -43,7 +52,7 @@ describe('ZIdentifierDirective', () => {
         // Act
         let id = target.attr('id');
         // Assert
-        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(ZId, jasmine.anything());
+        expect(zIdGeneratorSvc.generateAttributeForElement).toHaveBeenCalledWith('id', ZId, jasmine.anything());
     });
 
     it('leaves the element alone if the zid is not set.', () => {
@@ -54,7 +63,7 @@ describe('ZIdentifierDirective', () => {
         // Act
         let id = target.attr('id');
         // Assert
-        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(null, jasmine.anything());
+        expect(zIdGeneratorSvc.generateAttributeForElement).toHaveBeenCalledWith('id', null, jasmine.anything());
     });
 
     it('correctly interpolates values from the scope.', () => {
@@ -66,6 +75,7 @@ describe('ZIdentifierDirective', () => {
         // Act
         let id = target.attr('id');
         // Assert
-        expect(zIdGeneratorSvc.generateIdForElement).toHaveBeenCalledWith(`${ZId}-my-value`, jasmine.anything());
+        expect(zIdGeneratorSvc.generateAttributeForElement).toHaveBeenCalledWith('id', `${ZId}-my-value`, jasmine.anything());
     });
 });
+*/
