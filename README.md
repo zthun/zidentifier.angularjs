@@ -63,10 +63,6 @@ You can also use this for labels.
 </div>    
 ```
 
-This outputs the following HTML.
-
-
-
 # Contribute
 
 You will need the source repository first.
