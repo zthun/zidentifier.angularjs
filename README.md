@@ -19,7 +19,7 @@ import * as ng from 'angular';
 ng.module('my-module', ['zthun.zidentifier']);
 ```
 
-This gives you access to the z-id attribute directive.  You can now dynamically generate ids based on your root component.
+This gives you access to the z-id attribute directives.  You can now dynamically generate ids based on your root component.
 
 ```html
 <div id="root">
@@ -30,7 +30,7 @@ This gives you access to the z-id attribute directive.  You can now dynamically 
 </div>
 ```
 
-The z-id attribute can be bound to context data as well.
+The attribute can be bound to context data as well.
 
 ```html
 <div id="root">
@@ -51,6 +51,21 @@ This will output the following HTML.
     </div>
 </div>
 ```
+
+You can also use this for labels.
+
+```html
+<div id="root">
+    <form id="root-form">
+        <label z-for-id="input">My Label</label>
+        <input z-id="input" type="text">
+    </form>
+</div>    
+```
+
+This outputs the following HTML.
+
+
 
 # Contribute
 
