@@ -2,7 +2,16 @@
 
 This package is the dynamic id generator for AngularJS.  
 
-See [@zthun/identifier.core](https://www.npmjs.com/package/@zthun/identifier.core) for the general problem and solution that this package attempts to solve.  
+See [@zthun/identifier.core](https://www.npmjs.com/package/@zthun/identifier.core) for the general problem and solution that this package attempts to solve.
+
+<p style="color:orange;">
+  WARNING:  This will be the last major.minor version published for @zthun/identifier.angularjs.  The only remaing patches that will be published will be for the case of one of the following criteria.  
+</p>
+
+<ul style="color:orange">
+  <li>A bug is found in the current production release of @zthun/identifier.angularjs that is critical and there is no workaround.</li>
+  <li>A release of angular 1.7.x that will cause the current production version of @zthun/identifier.angularjs to stop working.</li>
+</ul>
 
 # How to Use
 
@@ -15,11 +24,11 @@ npm install @zthun/identifier.angularjs --save
 In your Angular main module, add the zthun.zidentifier module to your list of dependencies.
 
 ```typescript
-import {module} from 'angular';
+import { module } from 'angular';
 module('my-module', ['zthun.identifier']);
 ```
 
-This gives you access to the zid attribute directives.  You can now dynamically generate ids based on your root component.
+This gives you access to the zid attribute directive.  You can now dynamically generate ids based on your root component.
 
 ```html
 <div id="root">
@@ -63,7 +72,7 @@ You can also use this for labels.
 </div>    
 ```
 
-# Contribute
+# Build and Test
 
 You will need the source repository first.
 
@@ -78,5 +87,8 @@ Once you have the repository, you can build the solution using the following com
 ```sh
 npm install
 npm run make
-npm pack
 ```
+
+# Contribute
+
+No further pull requests will be accepted for features or breaking changes of this package.  Only critical bugs and patch fixes will be considered.  If you wish to continue this package, it is better to fork and rebrand the package for your needs.
