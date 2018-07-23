@@ -1,8 +1,6 @@
 # Build Output
-bin
-src/**/*.js
-src/**/*.map
-src/**/*.d.ts
+dist
+*.tgz
 
 # Logs
 logs

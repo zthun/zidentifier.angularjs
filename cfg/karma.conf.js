@@ -56,6 +56,11 @@ module.exports = function(config) {
     karmaTypescriptConfig: {
       tsconfig: 'tsconfig.json',
 
+      exclude: {
+        mode: 'replace',
+        values: []
+      },
+
       coverageOptions: {
         instrumentation: !isDebug,
         exclude: [
