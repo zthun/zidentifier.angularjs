@@ -25,7 +25,7 @@ This gives you access to the zid attribute directives.  You can now dynamically 
 <div id="root">
     <div zid="component">
         <div zid="child-one"></div>
-        <div z-d="child-two"></div>
+        <div zid="child-two"></div>
     </div>
 </div>
 ```
