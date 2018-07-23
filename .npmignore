@@ -2,3 +2,4 @@
 !dist/commonjs/**
 !dist/umd/**
 !dist/demo/**
+!dist/types/**

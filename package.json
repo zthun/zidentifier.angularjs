@@ -28,7 +28,7 @@
     "bundle": "webpack --config cfg/webpack.package.config",
     "transpile": "tsc",
     "compress": "uglifyjs dist/umd/zidentifier.js -o dist/umd/zidentifier.min.js",
-    "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm run bundle && npm run compress && npm pack",
+    "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm run bundle && npm run demo && npm run compress && npm pack",
     "start": "webpack-serve cfg/webpack.demo.config.js"
   },
   "peerDependencies": {
