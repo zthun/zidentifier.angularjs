@@ -1,9 +1,9 @@
 import { IComponentOptions, module } from 'angular';
 import { ZIdentifierDemoModuleName } from './zidentifier-demo.module';
 
-export const ZIdentifierComponentSelector = 'zidentifier-demo';
+export const ZIdentifierDemoComponentSelector = 'zIdentifierDemo';
 
-export class ZIdentifierComponent implements IComponentOptions {
+export class ZIdentifierDemoComponent implements IComponentOptions {
   public controller: string;
   public controllerAs: string;
   public template: string;
@@ -16,4 +16,4 @@ export class ZIdentifierComponent implements IComponentOptions {
   }
 }
 
-module(ZIdentifierDemoModuleName).component(ZIdentifierComponentSelector, new ZIdentifierComponent());
+module(ZIdentifierDemoModuleName).component(ZIdentifierDemoComponentSelector, new ZIdentifierDemoComponent());

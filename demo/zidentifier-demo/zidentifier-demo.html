@@ -1,3 +1,84 @@
-<div zid="identifier-demo">
-  Setup complete.
+<div zid="app">
+    <div class="container-fluid">
+        <div class="row my-2">
+          <div class="col text-center">
+            <h2>Welcome to the Identifier Demo App for AngularJS</h2>
+          </div>
+        </div>
+
+        <div class="row my-2">
+          <div class="col text-center">
+            <button zid="run-test-button" class="btn btn-success btn-lg m-2" type="button" ng-click="ctrl.runTest()">Run Test</button>
+            <button zid="reset-test-button" class="btn btn-danger btn-lg m-2" type="button" ng-click="ctrl.resetTest()">Reset Test</button>
+          </div>
+        </div>
+
+        <div class="row my-2">
+          <div class="col">
+            <table zid="id-table" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Found?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="id in ctrl.ids">
+                  <td>{{id.name}}</td>
+                  <td ng-class="{'text-success': id.exists, 'text-danger': !id.exists}">{{id.exists ? 'Yes' : 'No'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row my-2">
+          <div class="col-sm-auto">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="animals" zid="dog-radio" value="dog" ng-model="ctrl.animal" />
+              <label class="form-check-label" zfor="dog-radio">Dog</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="animals" zid="cat-radio" value="cat" ng-model="ctrl.animal" />
+              <label class="form-check-label" zfor="cat-radio">Cat</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="animals" zid="bird-radio" value="bird" ng-model="ctrl.animal" />
+              <label class="form-check-label" zfor="bird-radio">Bird</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="animals" zid="fish-radio" value="fish" ng-model="ctrl.animal" />
+              <label class="form-check-label" zfor="fish-radio">Fish</label>
+            </div>
+          </div>
+          <div class="col-sm">
+            <table zid="id-table" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Label</th>
+                  <th>Found?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="label in ctrl.labels">
+                  <td>{{label.name}}</td>
+                  <td ng-class="{'text-success': label.exists, 'text-danger': !label.exists}">{{label.exists ? 'Yes' : 'No'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col">
+            <div zid="a">
+              <z-identifier-demo-child></z-identifier-demo-child>
+            </div>
+          </div>
+          <div class="col">
+            <div zid="b">
+              <z-identifier-demo-child></z-identifier-demo-child>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
