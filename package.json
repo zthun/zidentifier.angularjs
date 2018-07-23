@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/zthun/zidentifier.angularjs"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rimraf dist *.tgz",
     "test": "karma start cfg/karma.conf.js",
