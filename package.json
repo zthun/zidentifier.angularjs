@@ -1,5 +1,5 @@
 {
-  "name": "@zthun/zidentifier.angularjs",
+  "name": "@zthun/identifier.angularjs",
   "version": "1.1.0",
   "description": "The zidentifier feature for Angular 1.x",
   "keywords": [
@@ -9,54 +9,48 @@
   ],
   "author": "Anthony Bonta",
   "license": "MIT",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/zthun/zidentifier.angularjs"
   },
   "scripts": {
-    "clean:src": "rimraf src/*.d.ts src/**/*.d.ts src/*.js src/**/*.js src/*.map src/**/*.map",
-    "clean:bin": "rimraf bin *.tgz",
-    "clean": "npm run clean:bin && npm run clean:src",
+    "clean": "rimraf dist *.tgz",
     "test": "karma start cfg/karma.conf.js",
-    "lint:ts": "tslint -c node_modules/zwebstyles/tslint.json src/**/*.ts src/*.ts test/*.ts",
-    "lint:js": "eslint cfg/*.js --config=node_modules/zwebstyles/.eslintrc",
+    "lint:ts": "tslint src/**/*.ts -c node_modules/@zthun/web-styles/lint/tslint.json",
+    "lint:js": "eslint cfg/*.js --config=node_modules/@zthun/web-styles/lint/.eslintrc",
     "lint": "npm run lint:ts && npm run lint:js",
-    "compile:webpack": "webpack --config cfg/webpack.config",
-    "compile:ts": "tsc",
-    "compile": "npm run compile:ts && npm run compile:webpack",
-    "compress": "uglifyjs bin/dist/zidentifier.js -o bin/dist/zidentifier.min.js",
-    "make": "npm run clean && npm run lint && npm run test && npm run compile && npm run compress",
-    "push": "git push origin && git push origin --tags && npm publish --access=public"
+    "bundle": "webpack --config cfg/webpack.config",
+    "transpile": "tsc",
+    "compress": "uglifyjs dist/umd/zidentifier.js -o dist/umd/zidentifier.min.js",
+    "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm run bundle && npm run compress"
   },
   "peerDependencies": {
-    "angular": ">=1.6.0"
+    "angular": ">=1.7.0"
   },
   "devDependencies": {
-    "@types/angular": "=1.6.40",
-    "@types/angular-mocks": "=1.5.11",
-    "@types/jasmine": "=2.8.3",
-    "@types/node": "=9.3.0",
-    "angular": "=1.6.8",
-    "angular-mocks": "=1.6.8",
-    "awesome-typescript-loader": "=3.4.1",
-    "eslint": "=4.15.0",
-    "jasmine-core": "=2.8.0",
-    "karma": "=2.0.0",
-    "karma-jasmine": "=1.1.1",
-    "karma-jasmine-html-reporter": "=0.2.2",
+    "@types/angular": "=1.6.49",
+    "@types/angular-mocks": "=1.6.1",
+    "@types/jasmine": "=2.8.8",
+    "@types/node": "=10.5.2",
+    "@zthun/web-styles": "=5.0.0",
+    "angular": "=1.7.2",
+    "angular-mocks": "=1.7.2",
+    "awesome-typescript-loader": "=5.2.0",
+    "jasmine-core": "=3.1.0",
+    "karma": "=2.0.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "=1.1.2",
+    "karma-jasmine-html-reporter": "=1.2.0",
     "karma-junit-reporter": "=1.2.0",
-    "karma-phantomjs-launcher": "=1.0.4",
-    "karma-typescript": "=3.0.9",
-    "phantomjs-prebuilt": "=2.1.16",
+    "karma-typescript": "=3.0.13",
     "rimraf": "=2.6.2",
-    "tslint": "=5.8.0",
-    "typescript": "=2.6.2",
-    "webpack": "=3.10.0",
-    "zwebstyles": "=3.0.0"
+    "typescript": "=2.9.2",
+    "webpack": "=4.16.1",
+    "webpack-cli": "=3.1.0"
   },
   "dependencies": {
-    "@zthun/zidentifier.core": "=1.1.1"
+    "@zthun/identifier.core": "=2.0.1"
   }
 }

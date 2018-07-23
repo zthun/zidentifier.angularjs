@@ -1,7 +1,9 @@
 module.exports = (function() {
-    return {
-        dist: 'bin/dist',
-        coverage: 'bin/coverage',
-        reports: 'bin/reports'
-    };
+  return {
+    dist: 'dist',
+    umd: 'dist/umd',
+    commonjs: 'dist/commonjs',
+    coverage: 'dist/coverage',
+    reports: 'dist/reports'
+  };
 })();
