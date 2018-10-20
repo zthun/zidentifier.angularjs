@@ -1,0 +1,2 @@
+options:
+  config-file: './node_modules/@zthun/web-styles/lint/.sass-lint.yml'
