@@ -31,7 +31,7 @@
     "transpile": "tsc",
     "compress": "uglifyjs dist/umd/zidentifier.js -o dist/umd/zidentifier.min.js",
     "make": "npm run clean && npm run lint && npm run test && npm run transpile && npm run bundle && npm run demo && npm run compress && npm pack",
-    "start": "webpack-serve cfg/webpack.demo.config.js"
+    "start": "webpack-dev-server --config cfg/webpack.demo.config.js"
   },
   "peerDependencies": {
     "angular": ">=1.7.0"
@@ -64,7 +64,7 @@
     "style-loader": "=0.23.1",
     "webpack": "=4.21.0",
     "webpack-cli": "=3.1.2",
-    "webpack-serve": "=2.0.2"
+    "webpack-dev-server": "=3.1.9"
   },
   "dependencies": {
     "@zthun/identifier.core": "=2.0.2"
